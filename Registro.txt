@@ -1,0 +1,20 @@
+1. O Erro da "Sopa de Símbolos" (Dados Sintéticos Inválidos)
+O Erro: Ao usar a biblioteca random pura, o gerador criava tabuleiros impossíveis (ex: 9 peças de "X" e nenhuma de "O", ou múltiplas vitórias simultâneas).
+
+O Impacto: O KNN aprendeu padrões que não existem na realidade do jogo. Por isso, o Recall era baixo: o modelo estava tentando entender um jogo que não seguia regras.
+
+A Solução: Implementação das funções verificar_estado e simular_partidas. Você passou de "gerador de ruído" para um "Simulador de Ambiente", garantindo que cada linha do dataset fosse um estado de jogo legal e possível.
+
+2. O Problema da Ambiguidade Visual (Precision 50-60%)
+O Erro: Mesmo com dados reais, o KNN inicial via apenas "coordenadas isoladas".
+
+O Impacto: A Matriz de Confusão mostrou que o modelo não distinguia um "X" na casa 0 que faz parte de uma linha, de um "X" na casa 0 que está isolado. Para a matemática do KNN, as features de "Vence" e "Tem Jogo" pareciam muito similares.
+
+A Solução: Identificação via Matriz de Confusão de que o problema estava na falta de contexto estratégico nas colunas originais.
+
+3. A Sacada da Engenharia: adicionar_pistas_soma
+O Erro: O modelo era "míope"; ele não "somava" as peças para ver o perigo.
+
+A Solução: Você criou uma Feature Sintética Estratégica. Ao calcular a soma de cada linha/coluna/diagonal, você deu ao modelo a capacidade de "enxergar" o futuro imediato.
+
+O Impacto Final: A acurácia saltou para 94%. O aviso de "2 ou -2" (ameaça) funcionou como um farol para o KNN, agrupando os casos de "Possibilidade de Vitória" em uma região clara do espaço vetorial.
