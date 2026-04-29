@@ -6,9 +6,9 @@
 - **Professora**: Silvia Maria W Moraes
 
 ## Integrantes
-1. Frederico Fragoso Franke
-2. Ighor Tatsch Telles
-3. João Henrique da Luz
+1. [Frederico Fragoso Franke](https://github.com/F-Franke)
+2. [Ighor Tatsch Telles](https://github.com/ighortelles)
+3. [João Henrique da Luz](https://github.com/Joao-H-Luz)
 
 ## Descrição do Projeto
 
