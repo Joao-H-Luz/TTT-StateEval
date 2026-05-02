@@ -1,0 +1,12 @@
+[project]
+name = "ttt-stateeval"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "joblib>=1.5.3",
+    "pandas>=3.0.2",
+    "scikit-learn>=1.8.0",
+    "streamlit>=1.57.0",
+]
