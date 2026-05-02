@@ -12,7 +12,7 @@ st.set_page_config(page_title="Tic Tac Toe com IA (KNN)", layout="centered")
 @st.cache_resource
 def load_ml_assets():
     try:
-        model = joblib.load('models/knn.pkl')
+        model = joblib.load('models/knn_f3.pkl')
         scaler = joblib.load('models/scaler.pkl')
         return model, scaler
     except Exception as e:
